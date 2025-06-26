@@ -76,9 +76,6 @@ params:
     - name: Reddit
       title: Reddit
       url: "https://github.com/isaacward1"
-    - name: mastadon
-      title: Mastadon
-      url: "https://github.com/isaacward1"
 
   editPost:
     URL: "https://github.com/isaacward1"
