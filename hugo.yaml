@@ -64,7 +64,7 @@ params:
   homeInfoParams:
     Title: "Under construction..."
     Content: >
-      watch out for rogue hammers 🔨
+      🔨
 
   socialIcons:
     - name: github
