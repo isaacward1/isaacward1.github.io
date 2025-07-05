@@ -23,8 +23,6 @@ params:
       url: "https://www.linkedin.com/in/iward-sec/"
     - name: Mastodon
       url: "https://infosec.exchange/@bureaucrat"
-    - name: Reddit
-      url: "https://www.reddit.com/user/boson-x86/"
 
 menu:
   main:
