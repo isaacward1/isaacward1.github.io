@@ -9,7 +9,7 @@ params:
   defaultTheme: dark
   homeInfoParams:
     Title: "Under construction..."
-    Content: >-
+    Content: >
       🔨
   socialIcons:
     - name: Email
