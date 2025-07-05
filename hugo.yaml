@@ -9,15 +9,16 @@ params:
   defaultTheme: dark
   homeInfoParams:
     Title: "Under construction..."
-    Content: >
+    Content: >-
       🔨
   socialIcons:
     - name: Email
+      title: Email
       url: 'mailto:some@emailadres.com'
     - name: Github
       title: Github
       url: "https://github.com/isaacward1"
-     - name: Mastodon
+    - name: Mastodon
       title: Mastodon
       url: "https://github.com/isaacward1"
     - name: Reddit
