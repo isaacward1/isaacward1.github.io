@@ -97,23 +97,20 @@ markup:
     # lineNos: true
     # style: monokai
 
-# privacy:
-#   vimeo:
-#     disabled: false
-#     simple: true
-
-#   twitter:
-#     disabled: false
-#     enableDNT: true
-#     simple: true
-
-#   instagram:
-#     disabled: false
-#     simple: true
-
-#   youtube:
-#     disabled: false
-#     privacyEnhanced: true
+menu:
+  main:
+    - identifier: home
+      name: home
+      url: /
+      weight: 10
+    - identifier: archive
+      name: archive
+      url: /archive/
+      weight: 10
+    - identifier: search
+      name: search
+      url: /search/
+      weight: 10
 
 services:
   instagram:
