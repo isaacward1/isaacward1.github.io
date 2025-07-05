@@ -2,118 +2,42 @@ baseURL: "https://isaacward1.github.io/"
 languageCode: "en-us"
 title: "Isaac's Blog"
 theme: "PaperMod"
-copyright: "© [PaperMod Contributors](https://github.com/adityatelange/hugo-PaperMod/graphs/contributors)"
-
-enableInlineShortcodes: true
-enableRobotsTXT: true
-buildDrafts: false
-buildFuture: false
-buildExpired: false
-enableEmoji: true
-pygmentsUseClasses: true
-mainsections: ["posts", "papermod"]
-
-minify:
-  disableXML: true
-  # minifyOutput: true
-
-pagination:
-  disableAliases: false
-  pagerSize: 5
-
-outputs:
-  home:
-    - HTML
-    - RSS
-    - JSON
+canonifyurls: true
+relativeURLs: false
 
 params:
-  env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
-  author: Isaac
-
-  defaultTheme: auto
-  # disableThemeToggle: true
-  ShowShareButtons: true
-  ShowReadingTime: true
-  # disableSpecial1stPost: true
-  displayFullLangName: true
-  ShowPostNavLinks: true
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: true
-  ShowRssButtonInSectionTermList: true
-  ShowAllPagesInArchive: true
-  ShowPageNums: true
-  ShowToc: true
-  # comments: false
-  images: ["images/papermod-cover.png"]
-
-  profileMode:
-    enabled: false
-    title: PaperMod
-    imageUrl: "#"
-    imageTitle: my image
-    # imageWidth: 120
-    # imageHeight: 120
-    buttons:
-      - name: Archives
-        url: archives
-      - name: Tags
-        url: tags
-
+  defaultTheme: dark
   homeInfoParams:
     Title: "Under construction..."
-    Content: >
+    Content: >-
       🔨
-
   socialIcons:
-    - name: github
+    - name: Email
+      url: 'mailto:some@emailadres.com'
+    - name: Github
       title: Github
       url: "https://github.com/isaacward1"
-    - name: Discord
-      title: Join discord community
+     - name: Mastodon
+      title: Mastodon
       url: "https://github.com/isaacward1"
     - name: Reddit
       title: Reddit
       url: "https://github.com/isaacward1"
-
-  editPost:
-    URL: "https://github.com/isaacward1"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
-    
-  assets:
-    disableHLJS: true
-
-markup:
-  goldmark:
-    renderer:
-      unsafe: true
-  highlight:
-    noClasses: false
-    # anchorLineNos: true
-    # codeFences: true
-    # guessSyntax: true
-    # lineNos: true
-    # style: monokai
+    - name: Hack The Box
+      title: Hack The Box
+      url: "https://github.com/isaacward1"
 
 menu:
   main:
-    - identifier: home
-      name: home
+    - identifier: Home
+      name: Home
       url: /
       weight: 10
-    - identifier: archive
-      name: archive
+    - identifier: Archive
+      name: Archive
       url: /archive/
-      weight: 10
-    - identifier: search
-      name: search
+      weight: 20
+    - identifier: Search
+      name: Search
       url: /search/
-      weight: 10
-
-services:
-  instagram:
-    disableInlineCSS: true
-  x:
-    disableInlineCSS: true
+      weight: 30
