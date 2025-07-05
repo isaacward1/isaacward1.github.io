@@ -1,11 +1,5 @@
+{{- if not (.Param "hideFooter") }}
 <footer class="footer">
-  <div class="social-icons">
-    {{ with site.Params.socialIcons }}
-      {{ range . }}
-        <a href="{{ .url }}" title="{{ .title }}" target="_blank" rel="noopener noreferrer me">
-          {{ partial "icons/" (lower .name) . }}
-        </a>
-      {{ end }}
-    {{ end }}
-  </div>
+  {{ partial "social-icons.html" . }}
 </footer>
+{{- end }}
