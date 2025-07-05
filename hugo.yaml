@@ -16,20 +16,15 @@ params:
       🔨
   socialIcons:
     - name: Email
-      title: Email
-      url: 'mailto:some@emailadres.com'
+      url: 'mailto:some@emailadress.com'
     - name: Github
-      title: Github
       url: "https://github.com/isaacward1"
+    - name: Linkedin
+      url: "https://www.linkedin.com/in/iward-sec/"
     - name: Mastodon
-      title: Mastodon
-      url: "https://github.com/isaacward1"
+      url: "https://infosec.exchange/@bureaucrat"
     - name: Reddit
-      title: Reddit
-      url: "https://github.com/isaacward1"
-    - name: Hack The Box
-      title: Hack The Box
-      url: "https://github.com/isaacward1"
+      url: "https://www.reddit.com/user/boson-x86/"
 
 menu:
   main:
