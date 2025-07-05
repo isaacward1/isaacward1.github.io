@@ -6,6 +6,9 @@ canonifyurls: true
 relativeURLs: false
 
 params:
+  footer:
+    hideCopyright: true
+  hideFooter: true
   defaultTheme: dark
   homeInfoParams:
     Title: "Under construction..."
