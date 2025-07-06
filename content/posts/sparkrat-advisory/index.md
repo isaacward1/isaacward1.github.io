@@ -1,6 +1,6 @@
 ---
 title: "SparkRAT: A Multi-Platform Remote Access Tool"
-summary: An overview of the malware and its resurgence in a recent North Korean espionage campaign targeting macOS devices and government officials.
+summary: A brief analysis of the tool and its resurgence in a recent North Korean espionage campaign targeting macOS devices and government officials.
 date: 2025-02-03
 draft: false
 ShowToc: false
