@@ -1,11 +1,10 @@
 ---
 title: "T-Pot Multi-Honeypot on Azure"
 date: 2025-06-15
-tags: ["Honeypot", "Cloud"]
 draft: false
 ShowToc: false
 ---
-A simple guide for setting up Telekom's awesome multi-honeypot <a href="https://github.com/telekom-security/tpotce" target="_blank">T-Pot</a> on Azure.
+A simple guide for setting up Telekom's awesome multi-honeypot [T-Pot](https://github.com/telekom-security/tpotce) on Azure.
 
 <br><br>
 
