@@ -15,8 +15,6 @@ params:
     Content: >-
       🔨
   socialIcons:
-    - name: Email
-      url: 'mailto:some@emailadress.com'
     - name: Github
       url: "https://github.com/isaacward1"
     - name: Linkedin
