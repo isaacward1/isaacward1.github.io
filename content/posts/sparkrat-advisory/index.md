@@ -6,13 +6,15 @@ draft: false
 ShowToc: false
 ---
 
-## Targeted Entities 
+## Targeted Entities
+---
 - Industries: Any (Opportunistic) 
 - Operating Systems: Windows, macOS, and Linux 
 
 <br><br>
 
 ## Introduction
+---
 Written primarily in Golang, SparkRAT is a feature-rich, multi-platform Remote Administration Tool (RAT)
 that allows for the granular control of infected devices via web interface [11]. It was first published
 on GitHub in March of 2022 by elusive, Chinese-speaking developer XZB-1248. However, the project went
@@ -29,6 +31,7 @@ researchers at Hunt.io detecting new C2 servers and hints of a possible DPRK cam
 <br><br>
 
 ## SparkRAT Observed in DPRK Campaign
+---
 In a Twitter post by threat intelligence expert, Germán Fernández (@1ZRR4H) back in November 2024,
 a cyber espionage campaign attributed to the North Korean government was revealed, targeting macOS
 users and government organizations [5]. The threat actors behind this operation were reportedly
@@ -55,7 +58,7 @@ another domain which has also been found to host SparkRAT agents (clients):
 ![Curl results from hxxps://gmcomamz[.]site/dev/test.sh](curl-test-bash.png)
 
 ## SparkRAT Analysis
-
+---
 ![SparkRAT Web Interface](sparkrat-webui.png)
 
 Accessed through a browser, the SparkRAT Web UI provides an overview of active remote sessions along with
@@ -101,7 +104,7 @@ this client is using the latest SparkRAT version that the server can offer.
 <br><br>
 
 ## MITRE ATT&CK 
-
+---
 #### T1059 - Command and Scripting Interpreter 
 
 Adversaries may abuse command and script interpreters to execute commands, scripts, or binaries. These interfaces and languages provide ways of interacting 
@@ -143,7 +146,7 @@ Adversaries may interact with the native OS application programming interface (A
 <br><br>
 
 ## Indicators of Compromise (IOCs) 
-
+---
 #### SHA-256 Hashes
     fcf9b70253437c56bb00315da859ce8e40d6410ec405c1473b374359d5277209 
     3bfb4f5c328d57b647ba81045eae223ff292f0caa216fee97e98127b2934c6b0 
@@ -193,7 +196,7 @@ Adversaries may interact with the native OS application programming interface (A
 <br><br>
 
 ## Recommendations 
-
+---
 #### Exercise Good Cyber Hygiene <br>
 The easiest, most effective way to prevent system compromise via Remote Access 
 Trojans like SparkRAT is to simply practice good cyber hygiene. This includes not opening unknown files,
@@ -233,7 +236,7 @@ better preparation of systems and aid in detection efforts of emerging threats.
 <br><br>
 
 ## References 
-
+---
 [1] Arctic Wolf. (November 3, 2023). Exploitation of CVE-2023-46604 in Apache ActiveMQ Leads to TellYouThePass Ransomware. https://arcticwolf.com/resources/blog/tellmethetruth-exploitation-of-cve-2023-46604-leading-to-ransomware/ 
 
 [2] Bittner, D. (Jan 29, 2025). Cats and RATS are all the rage. https://thecyberwire.com/podcasts/daily-podcast/2234/transcript 
