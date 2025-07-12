@@ -8,7 +8,9 @@ ShowToc: false
 A simple guide for setting up Telekom's awesome multi-honeypot [T-Pot](https://github.com/telekom-security/tpotce) on Azure.
 
 
-## Azure VM Deployment <hr>
+## Azure VM Deployment 
+
+<hr>
 
 Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 - <b>Note:</b> Ubuntu was less problematic (T-Pot installs flawlessly out of the box), but Debian is slimmer and slightly more performant. I chose Debian for this tutorial, but most steps should apply to both.
@@ -181,7 +183,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 ## Troubleshooting
 
-- Changing the T-Pot Web UI Password:
+##### Changing the T-Pot Web UI Password:
 
 `htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>`
 
@@ -189,7 +191,7 @@ Verify: `htpasswd -v nginxpasswd <web username>`
 
 <br>
 
-- Creating a New Web User:
+##### Creating a New Web User:
 
 `/home/<local user>/tpotce/genuser.sh`
 
@@ -199,31 +201,31 @@ Verify: `cat /home/<local user>/tpotce/data/nginx/conf/nginxpasswd` to make sure
 
 <br>
 
-- To check for TPot-related errors:
+##### To check for TPot-related errors:
   
 `journalctl -u tpot -f` 
 
 <br>
 
-- To check the status/errors of tpot.service:
+##### To check the status/errors of tpot.service:
 
 `sudo systemctl status tpot.service` 
 
 <br>
 
-- To check for port bind conflicts that will force-restart tpot.service:
+##### To check for port bind conflicts that will force-restart tpot.service:
 
 `sudo netstat -tulpen` or `sudo ss -tunlap` 
 
 <br>
 
-- To determine processes reponsible for port conflicts on a specified port:
+##### To determine processes reponsible for port conflicts on a specified port:
 
 `sudo fuser {port}/tcp(udp)` to get the PID(s) of processes using this port, then `ps -p {PID}` 
 
 <br>
 
-- You may need to manually set DNS/nameservers in case of port 53 conflict: 
+##### You may need to manually set DNS/nameservers in case of port 53 conflict: 
         
         $ sudo systemctl disable --now systemd-resolved.service
   
