@@ -60,7 +60,9 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 - <b>Note:</b> T-Pot expects your virtual network subnet (internal) to be a /24 (255.255.255.0) 
 
 
-## Installing T-Pot
+## Installing T-Pot 
+
+<hr>
 
 1. Create temporary SSH firewall rule (VM > Side Panel > Networking > Settings > (+) Create Port Rule > Inbound)
 
@@ -88,6 +90,8 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 ## System Tweaks
 
+<hr>
+
     $ nano /etc/ssh/sshd_config
     change: PasswordAuthentication {} --> PasswordAuthentication no
 
@@ -104,6 +108,8 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 
 ## NSG Firewall Rules
+
+<hr>
 
 - Delete the temporary SSH rule created for initial access
 
@@ -153,6 +159,9 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 
 ## Test Access
+
+<hr>
+
 <b>SSH:</b> ssh {username}@{Azure VM Public IP} -p 64295
 
 <b>Web Dashboard:</b> https://{Azure VM Public IP}:64297 (bookmark this)
@@ -177,11 +186,16 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 
 ## Configuring Elasticsearch/Logstash
+
+<hr>
+
 😴😴😴
 
 
 
 ## Troubleshooting
+
+<hr>
 
 #### Changing the T-Pot Web UI Password:
 - `htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>`
