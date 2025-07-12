@@ -210,7 +210,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 #### Creating a New Web User:
 - `/home/<local user>/tpotce/genuser.sh`
 - `htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <new user>`
-- Verify: `cat /home/<local user>/tpotce/data/nginx/conf/nginxpasswd` to make sure there is an entry for <new user>
+- Verify: `cat /home/<local user>/tpotce/data/nginx/conf/nginxpasswd` to make sure there is an entry for `<new user>`
 
 <br>
 
