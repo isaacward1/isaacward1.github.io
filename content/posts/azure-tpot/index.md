@@ -181,17 +181,47 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 ## Troubleshooting
 
-- Changing the T-Pot Web UI Password: <br> `htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>` <br> Verify: `htpasswd -v nginxpasswd <web username>` <br>
+- Changing the T-Pot Web UI Password:
 
-- Creating a New Web User: <br> `/home/<local user>/tpotce/genuser.sh` <br> `htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <new user>` <br> Verify: `cat /home/<local user>/tpotce/data/nginx/conf/nginxpasswd` to make sure there is an entry for <new user> <br>
+`htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>`
 
-- To check for TPot-related errors: <br> `journalctl -u tpot -f` <br>
+Verify: `htpasswd -v nginxpasswd <web username>` 
 
-- To check the status/errors of tpot.service: <br> `sudo systemctl status tpot.service` <br>
+<br>
 
-- To check for port bind conflicts that will force-restart tpot.service: <br> `sudo netstat -tulpen` or `sudo ss -tunlap` <br>
+- Creating a New Web User:
 
-- To determine processes reponsible for port conflicts on a specified port: <br> `sudo fuser {port}/tcp(udp)` to get the PID(s) of processes using this port, then `ps -p {PID}` <br>
+`/home/<local user>/tpotce/genuser.sh`
+
+`htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <new user>`
+
+Verify: `cat /home/<local user>/tpotce/data/nginx/conf/nginxpasswd` to make sure there is an entry for <new user>
+
+<br>
+
+- To check for TPot-related errors:
+  
+`journalctl -u tpot -f` 
+
+<br>
+
+- To check the status/errors of tpot.service:
+
+`sudo systemctl status tpot.service` 
+
+<br>
+
+- To check for port bind conflicts that will force-restart tpot.service:
+
+`sudo netstat -tulpen` or `sudo ss -tunlap` 
+
+<br>
+
+- To determine processes reponsible for port conflicts on a specified port:
+
+`sudo fuser {port}/tcp(udp)` to get the PID(s) of processes using this port, then `ps -p {PID}` 
+
+<br>
 
 - You may need to manually set DNS/nameservers in case of port 53 conflict: 
         
