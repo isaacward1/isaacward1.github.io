@@ -6,6 +6,11 @@ canonifyurls: true
 relativeURLs: false
 
 params:
+  assets:
+    favicon: "/assets/favicon.ico"
+    favicon16x16: "/assets/favicon-16x16.png"
+    favicon32x32: "/assets/favicon-32x32.png"
+    apple_touch_icon: "/assets/apple-touch-icon.png"
   footer:
     hideCopyright: true
   hideFooter: true
@@ -21,12 +26,6 @@ params:
       url: "https://www.linkedin.com/in/iward-sec/"
     - name: Mastodon
       url: "https://infosec.exchange/@bureaucrat"
-  assets:
-    favicon: "/assets/favicons/favicon.ico"
-    favicon16x16: "/assets/favicons/favicon-16x16.png"
-    favicon32x32: "/assets/favicons/favicon-32x32.png"
-    apple_touch_icon: "/assets/favicons/apple-touch-icon.png"
-
 
 menu:
   main:
