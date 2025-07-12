@@ -14,6 +14,7 @@ params:
   footer:
     hideCopyright: true
   hideFooter: true
+  disableAnchoredHeadings: true
   defaultTheme: dark
   homeInfoParams:
     Title: "Under (permanent) construction..."
