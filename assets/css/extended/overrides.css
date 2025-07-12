@@ -29,4 +29,5 @@
 /*.post-content p,*/
 .post-content img {
   margin-bottom: 0px;
+  display: block;
 }
