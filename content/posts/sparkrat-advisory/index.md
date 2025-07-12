@@ -44,9 +44,11 @@ Interestingly, these uncovered C2 server domains were found to have open directo
 containing SparkRAT implants and bash scripts. Below are screenshots of an exposed directory and the content of its hosted scripts. 
 
 ![](gmcomamz-dev-dir.png)
-<h6>Screenshot of hxxps://gmcomamz[.]site/dev (Source: Hunt.io)</h6>
+
+###### Screenshot of hxxps://gmcomamz[.]site/dev (Source: Hunt.io)
 
 ![](curl-dev-bash.png)
+
 <h6>Curl results from hxxps://gmcomamz[.]site/dev/dev.sh</h6>
 
 The bash script above downloads the Mach-O binary file (client.bin) from the hosting domain
@@ -58,11 +60,13 @@ The behavior of the test.sh script is similar, however, it points to
 another domain which has also been found to host SparkRAT agents (clients): 
 
 ![](curl-test-bash.png)
+
 <h6>Curl results from hxxps://gmcomamz[.]site/dev/test.sh</h6>
 
 ## SparkRAT Analysis
 ---
 ![](sparkrat-webui.png)
+
 <h6>SparkRAT Web Interface</h6>
 
 Accessed through a browser, the SparkRAT Web UI provides an overview of active remote sessions along with
@@ -70,6 +74,7 @@ system information of each connected machine. In addition to the basic operation
 interface comes with several additional capabilities such as viewing a live instance of the victim’s screen, taking screenshots, and remote shutdown. 
 
 ![](sparkrat-create-client.png)
+
 <h6>Client Creation</h6>
 
 **Generate Client** creates an executable file that, when executed on a target machine,
@@ -78,6 +83,7 @@ to point to different hosts, connect over a specified port, and run on different
 systems (Windows, macOS/Darwin, and Linux). 
 
 ![](sparkrat-terminal.png)
+
 <h6>Remote Terminal Window</h6>
 
 As one would expect, the **Terminal** feature allows for attackers to execute
@@ -91,12 +97,14 @@ system-level operations like disabling the firewall, modifying registry keys, an
 The **Process** feature lists all running processes as well as the ability to stop them. This can be used to terminate security/monitoring software. 
 
 ![](sparkrat-filesystem.png)
+
 <h6>File Manager Tool</h6>
 
 **Explorer** allows attackers to enumerate, create, and delete files/directories on the target 
 system. It also allows files/directories to be downloaded to the attacker's local machine or uploaded to the target machine. 
 
 ![](wireshark-initial.png)
+
 <h6>Wireshark capture showing initial client-C2 communication</h6>
 
 In this exchange, captured shortly after the execution of a SparkRAT agent,
@@ -104,6 +112,7 @@ the target system sends a request to upgrade its connection to use the
 WebSocket protocol. A WebSocket handshake over port 8000 is a key characteristic of SparkRAT command-and-control (C2) traffic. 
 
 ![](wireshark-client-post.png)
+
 <h6>Client POST request to update SparkRAT version</h6>
 
 Following the WebSocket handshake, the target system sends a POST request with the commit query parameter storing
