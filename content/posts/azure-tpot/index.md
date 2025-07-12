@@ -16,7 +16,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 [![create-vm1](create-vm1.png)](create-vm1.png)
 
-![create-vm2](create-vm2.png?)
+[![create-vm2](create-vm2.png)](create-vm2.png)
 
 #### Basics
 
@@ -29,15 +29,15 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
     Authentication type:     SSH public key
     Public inbound ports:    none
 
-![Basics-2](basics.png)
+[![Basics-2](basics.png)](basics.png)
 
 - <b>Note:</b> To save costs, it may be possible to run T-Pot on 2 cores, 8GB RAM - though this would require tweaking Logstash/Elasticsearch (A T-Pot Hive install on a fresh server idles around 7.9-8.5 GB RAM usage).
 
-![Basics](basics2.png)
+[![Basics](basics2.png)](basics2.png)
 
 - <b>Note:</b> You can allow immediate remote access via port 22 during this setup, but this port will be exposed to ALL external IPs. For this reason, I suggest setting 'Public inbound ports' to None and then creating a more restricted, temporary NSG rule after deploying the VM (see [Install step #1](#installing-t-pot)).
 
-![Basics-3](basics3.png)
+[![Basics-3](basics3.png)](basics3.png)
 - <b>Note:</b> You can select 'Generate new key pair' here if you want to use a new SSH key for accessing this VM. Put this key in your local .ssh folder. If on *nix, you may need to restrict its permissions with `sudo chmod 400 {generated key name}.pem`
 
 #### Disks
@@ -46,7 +46,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
     OS Disk type:      Standard SSD LRS
     Delete with VM:    Enabled
 
-![Basics](disks.png)
+[![Basics](disks.png)](disks.png)
 
 - <b>Note:</b> Though the [offical documentation](https://github.com/telekom-security/tpotce?tab=readme-ov-file#system-requirements) says SSD storage is required, I found this to work fine on Standard HDD.
 
@@ -58,7 +58,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
     Accelerated networking:     On
     Delete with VM:             Enabled
 
-![Basics](networking.png)
+[![Basics](networking.png)](networking.png)
 
 - <b>Note:</b> T-Pot expects your virtual network subnet (internal) to be a /24 (255.255.255.0) 
 
@@ -68,14 +68,14 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 1. Create temporary SSH firewall rule (VM > Side Panel > Networking > Settings > (+) Create Port Rule > Inbound)
 
-![nsg1](nsg1.png)
+[![nsg1](nsg1.png)](nsg1.png)
 
-![ssh-rule](ssh-rule.png)
+[![ssh-rule](ssh-rule.png)](ssh-rule.png)
 
 3. SSH into the VM
 4. Follow the [quick installation steps](https://github.com/telekom-security/tpotce#tldr) listed on the official repo
 
-![install1](install1.png)
+[![install1](install1.png)](install1.png)
 
 - <b>Note:</b> If unattended-upgrades.service is running (check with `sudo systemctl status unattended-upgrades.service`), you may need to stop it temporarily to avoid 'dpkg frontend lock' errors: `sudo systemctl stop unattended-upgrades.service`
 
@@ -84,7 +84,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 #### During install:
 - T-Pot install type: 'h'
 
-![install2](install2.png)
+[![install2](install2.png)](install2.png)
 
 - Document your chosen web username/password. You will need this to login to the T-Pot Web Dashboard.
 - Even though Azure NSG rules restrict access, make sure to have a strong web user password (e.g. 30+ char alhpa-numeric).
@@ -114,7 +114,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 - Delete the temporary SSH rule created for initial access
 
 #### Inbound:
-![mgmt-nsg](mgmt-nsg.png)
+[![mgmt-nsg](mgmt-nsg.png)](mgmt-nsg.png)
 
     Source: My IP address
     Source IP addresses/CIDR ranges: {your public IP}
@@ -128,7 +128,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
     Name: Allow-TpotMgmt-Inbound
     Description: Allow SSH and Web Dashboard access from My IP.
 
-![honeypot-nsg](honeypot-nsg.png)
+[![honeypot-nsg](honeypot-nsg.png)](honeypot-nsg.png)
 
     Source: My IP address
     Source IP addresses/CIDR ranges: {your public IP}
@@ -144,7 +144,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 #### Outbound:
 
-![outbound-nsg](nsg-outbound.png)
+[![outbound-nsg](nsg-outbound.png)](nsg-outbound.png)
 
     Source: Any
     Source port ranges: *
@@ -166,22 +166,22 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 <b>Web Dashboard:</b> `https://{Azure VM Public IP}:64297` (bookmark this)
 
-![tpot-dash](tpot-dash.png)
+[![tpot-dash](tpot-dash.png)](tpot-dash.png)
 
 #### Kibana
 
-![kibana-dash](kibana-dash.png)
+[![kibana-dash](kibana-dash.png)](kibana-dash.png)
 
 #### Attack Map
 
-![attack-map](attack-map.png)
+[![attack-map](attack-map.png)](attack-map.png)
 
 
 #### [Spiderfoot](https://github.com/smicallef/spiderfoot) Threat Intelligence
 
-![spiderfoot1](spiderfoot1.png)
+[![spiderfoot1](spiderfoot1.png)](spiderfoot1.png)
 
-![spiderfoot2](spiderfoot2.png)
+[![spiderfoot2](spiderfoot2.png)](spiderfoot2.png)
 
 
 ## Creating a Dashboard Visualisation
