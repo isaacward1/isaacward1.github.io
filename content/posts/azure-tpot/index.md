@@ -7,9 +7,8 @@ ShowToc: false
 ---
 A simple guide for setting up Telekom's awesome multi-honeypot [T-Pot](https://github.com/telekom-security/tpotce) on Azure.
 
-<div class="spacer"></div>
 
-## Azure VM Deployment
+## Azure VM Deployment <hr>
 
 Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 - <b>Note:</b> Ubuntu was less problematic (T-Pot installs flawlessly out of the box), but Debian is slimmer and slightly more performant. I chose Debian for this tutorial, but most steps should apply to both.
@@ -58,7 +57,6 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 - <b>Note:</b> T-Pot expects your virtual network subnet (internal) to be a /24 (255.255.255.0) 
 
-<div class="spacer"></div>
 
 ## Installing T-Pot
 
@@ -85,7 +83,6 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 - Document your chosen web username/password. You will need this to login to the T-Pot Web Dashboard.
 - Even though Azure NSG rules restrict access, make sure to have a strong web user password (e.g. 30+ char alhpa-numeric).
 
-<div class="spacer"></div>
 
 ## System Tweaks
 
@@ -103,7 +100,6 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
     $ sudo systemctl disable --now exim4-base.timer exim4-base.service exim4.service
     $ sudo apt purge exim4*
 
-<div class="spacer"></div>
 
 ## NSG Firewall Rules
 
@@ -153,12 +149,11 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
     Name: Allow-TpotMgmt-Outbound
     Description: Allow outbound management traffic.
 
-<div class="spacer"></div>
 
 ## Test Access
 <b>SSH:</b> ssh {username}@{Azure VM Public IP} -p 64295
 
-<b>Web Dashboard:</b> https://{Azure VM Public IP}:64297
+<b>Web Dashboard:</b> https://{Azure VM Public IP}:64297 (bookmark this)
 
 ![tpot-dash](tpot-dash.png)
 
@@ -177,33 +172,49 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 ![spiderfoot2](spiderfoot2.png)
 
-<div class="spacer"></div>
+
 
 ## Configuring Elasticsearch/Logstash
 😴😴😴
 
-<div class="spacer"></div>
+
 
 ## Troubleshooting
-#### If you choose to install T-Pot on a Debian 12 Azure VM, there are a few issues you may run into. Below are steps for troubleshooting:
 
-- To check fot TPot-related errors: <br> `journalctl -u tpot -f`
-
-<br>
-
-- To check the status/errors of tpot.service: <br> `sudo systemctl status tpot.service`
+#### Changing the T-Pot Web UI Password: <br> 
+`htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>` <br>
+Verify: `htpasswd -v nginxpasswd <web username>`
 
 <br>
 
-- To check for port bind conflicts that will force-restart tpot.service: <br> `sudo netstat -tulpen` or `sudo ss -tunlap`
+#### Creating a New Web User: <br> 
+`/home/<local user>/tpotce/genuser.sh` <br>
+`htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <new user>` <br>
+Verify: `cat /home/<local user>/tpotce/data/nginx/conf/nginxpasswd` to make sure there is an entry for <new user>
 
 <br>
 
-- To determine processes reponsible for port conflicts on a specified port: <br> `sudo fuser {port}/tcp(udp)` to get the PID(s) of processes using this port, then `ps -p {PID}`
+##### To check for TPot-related errors: <br> 
+`journalctl -u tpot -f`
 
 <br>
 
-- You may need to manually set DNS/nameservers in case of port 53 conflict: 
+#### To check the status/errors of tpot.service: <br>
+`sudo systemctl status tpot.service`
+
+<br>
+
+#### To check for port bind conflicts that will force-restart tpot.service: <br> 
+`sudo netstat -tulpen` or `sudo ss -tunlap`
+
+<br>
+
+#### To determine processes reponsible for port conflicts on a specified port: <br> 
+`sudo fuser {port}/tcp(udp)` to get the PID(s) of processes using this port, then `ps -p {PID}`
+
+<br>
+
+#### You may need to manually set DNS/nameservers in case of port 53 conflict: 
         
         $ sudo systemctl disable --now systemd-resolved.service
   
