@@ -10,7 +10,7 @@ A simple guide for setting up Telekom's awesome multi-honeypot [T-Pot](https://g
 
 ## Azure VM Deployment 
 
-<hr>
+---
 
 Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 - <b>Note:</b> Ubuntu was less problematic (T-Pot installs flawlessly out of the box), but Debian is slimmer and slightly more performant. I chose Debian for this tutorial, but most steps should apply to both.
@@ -184,44 +184,35 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 ## Troubleshooting
 
 #### Changing the T-Pot Web UI Password:
-
-`htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>`
-
-Verify: `htpasswd -v nginxpasswd <web username>` 
+- `htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>`
+- Verify: `htpasswd -v nginxpasswd <web username>` 
 
 <br>
 
 #### Creating a New Web User:
-
-`/home/<local user>/tpotce/genuser.sh`
-
-`htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <new user>`
-
-Verify: `cat /home/<local user>/tpotce/data/nginx/conf/nginxpasswd` to make sure there is an entry for <new user>
+- `/home/<local user>/tpotce/genuser.sh`
+- `htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <new user>`
+- Verify: `cat /home/<local user>/tpotce/data/nginx/conf/nginxpasswd` to make sure there is an entry for <new user>
 
 <br>
 
 #### To check for TPot-related errors:
-  
-`journalctl -u tpot -f` 
+- `journalctl -u tpot -f` 
 
 <br>
 
 #### To check the status/errors of tpot.service:
-
-`sudo systemctl status tpot.service` 
+- `sudo systemctl status tpot.service` 
 
 <br>
 
 #### To check for port bind conflicts that will force-restart tpot.service:
-
-`sudo netstat -tulpen` or `sudo ss -tunlap` 
+- `sudo netstat -tulpen` or `sudo ss -tunlap` 
 
 <br>
 
 #### To determine processes reponsible for port conflicts on a specified port:
-
-`sudo fuser {port}/tcp(udp)` to get the PID(s) of processes using this port, then `ps -p {PID}` 
+- `sudo fuser {port}/tcp(udp)` to get the PID(s) of processes using this port, then `ps -p {PID}` 
 
 <br>
 
