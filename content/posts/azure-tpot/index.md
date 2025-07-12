@@ -73,7 +73,9 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 [![ssh-rule](ssh-rule.png)](ssh-rule.png)
 
 3. SSH into the VM
-4. Follow the [quick installation steps](https://github.com/telekom-security/tpotce#tldr) listed on the official repo
+4. As non-root, `cd $HOME` and run the following command ([please verify this has not changed](https://github.com/telekom-security/tpotce#tldr)):
+
+       env bash -c "$(curl -sL https://github.com/telekom-security/tpotce/raw/master/install.sh)"
 
 [![install1](install1.png)](install1.png)
 
