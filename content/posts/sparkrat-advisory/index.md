@@ -44,12 +44,10 @@ Interestingly, these uncovered C2 server domains were found to have open directo
 containing SparkRAT implants and bash scripts. Below are screenshots of an exposed directory and the content of its hosted scripts. 
 
 ![](gmcomamz-dev-dir.png)
-
-<div class="h7">Screenshot of hxxps://gmcomamz[.]site/dev (Source: Hunt.io)</div>
+###### Screenshot of hxxps://gmcomamz[.]site/dev (Source: Hunt.io)
 
 ![](curl-dev-bash.png)
-
-<div class="h7">Curl results from hxxps://gmcomamz[.]site/dev/dev.sh</div>
+###### Curl results from hxxps://gmcomamz[.]site/dev/dev.sh
 
 The bash script above downloads the Mach-O binary file (client.bin) from the hosting domain
 (updatetiker[.]site), saves it as “pull.bin” to the /Users/shared directory, changes its
@@ -60,22 +58,19 @@ The behavior of the test.sh script is similar, however, it points to
 another domain which has also been found to host SparkRAT agents (clients): 
 
 ![](curl-test-bash.png)
-
-<div class="h7">Curl results from hxxps://gmcomamz[.]site/dev/test.sh</div>
+###### Curl results from hxxps://gmcomamz[.]site/dev/test.sh
 
 ## SparkRAT Analysis
 ---
 ![](sparkrat-webui.png)
-
-<div class="h7">SparkRAT Web Interface</div>
+###### SparkRAT Web Interface
 
 Accessed through a browser, the SparkRAT Web UI provides an overview of active remote sessions along with
 system information of each connected machine. In addition to the basic operations listed below, the tool’s
 interface comes with several additional capabilities such as viewing a live instance of the victim’s screen, taking screenshots, and remote shutdown. 
 
 ![](sparkrat-create-client.png)
-
-<div class="h7">Client Creation</div>
+###### Client Creation
 
 **Generate Client** creates an executable file that, when executed on a target machine,
 will create a backdoor connection with the associated C2 system. Clients can be customized
@@ -83,8 +78,7 @@ to point to different hosts, connect over a specified port, and run on different
 systems (Windows, macOS/Darwin, and Linux). 
 
 ![](sparkrat-terminal.png)
-
-<div class="h7">Remote Terminal Window</div>
+###### Remote Terminal Window
 
 As one would expect, the **Terminal** feature allows for attackers to execute
 commands on a target machine via a web-based PowerShell GUI. If used in
@@ -92,29 +86,25 @@ combination with remote privilege escalation, attackers can carry out
 system-level operations like disabling the firewall, modifying registry keys, and disabling antivirus software. 
 
 ![](sparkrat-process-mananger.png)
-
-<div class="h7">Process Manager</div>
+###### Process Manager
 
 The **Process** feature lists all running processes as well as the ability to stop them. This can be used to terminate security/monitoring software. 
 
 ![](sparkrat-filesystem.png)
-
-<div class="h7">File Manager Tool</div>
+###### File Manager Tool
 
 **Explorer** allows attackers to enumerate, create, and delete files/directories on the target 
 system. It also allows files/directories to be downloaded to the attacker's local machine or uploaded to the target machine. 
 
 ![](wireshark-initial.png)
-
-<div class="h7">Wireshark capture showing initial client-C2 communication</div>
+###### Wireshark capture showing initial client-C2 communication
 
 In this exchange, captured shortly after the execution of a SparkRAT agent,
 the target system sends a request to upgrade its connection to use the
 WebSocket protocol. A WebSocket handshake over port 8000 is a key characteristic of SparkRAT command-and-control (C2) traffic. 
 
 ![](wireshark-client-post.png)
-
-<div class="h7">Client POST request to update SparkRAT version</div>
+###### Client POST request to update SparkRAT version
 
 Following the WebSocket handshake, the target system sends a POST request with the commit query parameter storing
 the current version of the tool. This enables the RAT to automatically upgrade itself to the latest version available on the C2 server
