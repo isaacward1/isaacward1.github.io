@@ -2,3 +2,7 @@
     --main-width: 900px;
     --nav-width: 1204px;
 }
+
+.spacer {
+    height: 20px;  /* or px, like 20px */
+}
