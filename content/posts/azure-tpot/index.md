@@ -16,7 +16,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 ![create-vm1](create-vm1.png#wide)
 
-![create-vm2](create-vm2.png?c=wide)
+![create-vm2](create-vm2.png?)
 
 #### Basics
 
@@ -36,6 +36,9 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 ![Basics](basics2.png)
 
 - <b>Note:</b> You can allow immediate remote access via port 22 during this setup, but this port will be exposed to ALL external IPs. For this reason, I suggest setting 'Public inbound ports' to None and then creating a more restricted, temporary NSG rule after deploying the VM (see [Install step #1](#installing-t-pot)).
+
+![Basics-3](basics3.png)
+- <b>Note:</b> You can select 'Generate new key pair' here if you want to use a new SSH key for accessing this VM. Put this key in your local .ssh folder. If on *nix, you may need to restrict its permissions with `sudo chmod 400 {generated key name}.pem`
 
 #### Disks
 
@@ -158,9 +161,10 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 ## Test Access
 ---
 
-<b>SSH:</b> ssh {username}@{Azure VM Public IP} -p 64295
+<b>SSH:</b> `ssh {username}@{Azure VM Public IP} -p 64295` or
+`ssh {username}@{Azure VM Public IP} -i ~/.ssh/{generated key name}.pem -p 64295` if you're using a new key.
 
-<b>Web Dashboard:</b> https://{Azure VM Public IP}:64297 (bookmark this)
+<b>Web Dashboard:</b> `https://{Azure VM Public IP}:64297` (bookmark this)
 
 ![tpot-dash](tpot-dash.png)
 
