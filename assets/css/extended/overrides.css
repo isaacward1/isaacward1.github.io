@@ -16,11 +16,15 @@
     margin-top:0px;
 }
 
-
-.post-content h6 {
+.h7 {
     margin-top:5px;
     font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif;
     font-size: 10px;
     font-style: italic;
     word-break: break-word;
+    text-align: center;
+}
+
+element img {
+	margin-bottom: 0px;
 }
