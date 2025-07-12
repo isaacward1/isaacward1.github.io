@@ -7,16 +7,17 @@ ShowToc: false
 ---
 A simple guide for setting up Telekom's awesome multi-honeypot [T-Pot](https://github.com/telekom-security/tpotce) on Azure.
 
-<br>‎‏‏‎ ‎<br>
+<br>‎‏‏<p>‎<br>
 
 ## Azure VM Deployment
 
 Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 - <b>Note:</b> Ubuntu was less problematic (T-Pot installs flawlessly out of the box), but Debian is slimmer and slightly more performant. I chose Debian for this tutorial, but most steps should apply to both.
 
-![create-vm1](create-vm1.png)
+![create-vm1](create-vm1.png#wide)
 
-![create-vm2](create-vm2.png)
+
+![create-vm2](create-vm2.png?c=wide)
 
 #### Basics
 
