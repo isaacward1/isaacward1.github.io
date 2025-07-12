@@ -9,14 +9,12 @@ A simple guide for setting up Telekom's awesome multi-honeypot [T-Pot](https://g
 
 
 ## Azure VM Deployment 
-
 ---
 
 Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 - <b>Note:</b> Ubuntu was less problematic, but Debian was slimmer and slightly more performant. I went with Debian for this tutorial, but most steps should apply to both.
 
 ![create-vm1](create-vm1.png#wide)
-
 
 ![create-vm2](create-vm2.png?c=wide)
 
@@ -31,12 +29,13 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
     Authentication type:     SSH public key
     Public inbound ports:    none
 
-![Basics-2](basics2.png)
+![Basics-2](basics.png)
+
+- <b>Note:</b> To save costs, it may be possible to run T-Pot on 2 cores, 8GB RAM - though this would require tweaking Logstash/Elasticsearch (A T-Pot Hive install on a fresh server idles around 7.9-8.5 GB RAM usage).
+
+![Basics](basics2.png)
 
 - <b>Note:</b> You can allow immediate remote access via port 22 during this setup, but this port will be exposed to ALL external IPs. For this reason, I suggest setting 'Public inbound ports' to None and then creating a more restricted, temporary NSG rule after deploying the VM (see [Install step #1](#installing-t-pot)).
-
-![Basics](basics.png)
-
 
 #### Disks
 
@@ -46,6 +45,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 ![Basics](disks.png)
 
+- <b>Note:</b> Though the [offical documentation](https://github.com/telekom-security/tpotce?tab=readme-ov-file#system-requirements) says SSD storage is required, I found this to work fine on Standard HDD.
 
 #### Networking
 
@@ -61,7 +61,6 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 
 ## Installing T-Pot 
-
 ---
 
 1. Create temporary SSH firewall rule (VM > Side Panel > Networking > Settings > (+) Create Port Rule > Inbound)
@@ -89,7 +88,6 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 
 ## System Tweaks
-
 ---
 
     $ nano /etc/ssh/sshd_config
@@ -108,7 +106,6 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 
 ## NSG Firewall Rules
-
 ---
 
 - Delete the temporary SSH rule created for initial access
@@ -159,7 +156,6 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 
 ## Test Access
-
 ---
 
 <b>SSH:</b> ssh {username}@{Azure VM Public IP} -p 64295
@@ -185,28 +181,24 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 
 ## Creating a Dashboard Visualisation
-
 ---
 
 😴😴😴
 
 
 ## Splunk Integration
-
 ---
 
 😴😴😴
 
 
 ## Configuring Elasticsearch/Logstash
-
 ---
 
 😴😴😴
 
 
 ## Troubleshooting
-
 ---
 
 #### Changing the T-Pot Web UI Password:
