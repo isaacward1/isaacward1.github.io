@@ -14,7 +14,7 @@ A simple guide for setting up Telekom's awesome multi-honeypot [T-Pot](https://g
 Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 - <b>Note:</b> Ubuntu was less problematic, but Debian was slimmer and slightly more performant. I went with Debian for this tutorial, but most steps should apply to both.
 
-![create-vm1](create-vm1.png#wide)
+[![create-vm1](create-vm1.png)](create-vm1.png)
 
 ![create-vm2](create-vm2.png?)
 
