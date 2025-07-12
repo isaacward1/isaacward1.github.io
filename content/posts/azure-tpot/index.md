@@ -7,7 +7,7 @@ ShowToc: false
 ---
 A simple guide for setting up Telekom's awesome multi-honeypot [T-Pot](https://github.com/telekom-security/tpotce) on Azure.
 
-<br><br>
+<br> <br>
 
 ## Azure VM Deployment
 
@@ -57,7 +57,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 - <b>Note:</b> T-Pot expects your virtual network subnet (internal) to be a /24 (255.255.255.0) 
 
-<br><br>
+<br> <br>
 
 ## Installing T-Pot
 
@@ -84,7 +84,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 - Document your chosen web username/password. You will need this to login to the T-Pot Web Dashboard.
 - Even though Azure NSG rules restrict access, make sure to have a strong web user password (e.g. 30+ char alhpa-numeric).
 
-<br><br>
+<br> <br>
 
 ## System Tweaks
 
@@ -102,7 +102,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
     $ sudo systemctl disable --now exim4-base.timer exim4-base.service exim4.service
     $ sudo apt purge exim4*
 
-<br><br>
+<br> <br>
 
 ## NSG Firewall Rules
 
@@ -152,7 +152,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
     Name: Allow-TpotMgmt-Outbound
     Description: Allow outbound management traffic.
 
-<br><br>
+<br> <br>
 
 ## Test Access
 <b>SSH:</b> ssh {username}@{Azure VM Public IP} -p 64295
@@ -176,12 +176,12 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 ![spiderfoot2](spiderfoot2.png)
 
-<br><br>
+<br> <br>
 
 ## Configuring Elasticsearch/Logstash
 😴😴😴
 
-<br><br>
+<br> <br>
 
 ## Troubleshooting
 #### If you choose to install T-Pot on a Debian 12 Azure VM, there are a few issues you may run into. Below are steps for troubleshooting:
