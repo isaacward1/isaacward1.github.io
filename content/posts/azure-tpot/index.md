@@ -186,7 +186,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 [![spiderfoot2](spiderfoot2.png)](spiderfoot2.png)
 
 
-## Creating a Dashboard Visualisation
+## Creating a Kibana Dashboard Visualization
 ---
 
 😴😴😴
@@ -207,13 +207,13 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 ## Troubleshooting
 ---
 
-#### Changing the T-Pot Web UI Password:
+#### Changing the T-Pot web UI password:
 - `htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>`
 - Verify: `htpasswd -v /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>` 
 
 <br>
 
-#### Creating a New Web User:
+#### Creating a new web user:
 - `/home/<local user>/tpotce/genuser.sh`
 - `htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <new user>`
 - Verify: `cat /home/<local user>/tpotce/data/nginx/conf/nginxpasswd` to make sure there is an entry for `<new user>`
