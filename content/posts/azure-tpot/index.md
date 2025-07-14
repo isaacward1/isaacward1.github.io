@@ -12,7 +12,7 @@ A simple guide for setting up Telekom's awesome multi-honeypot [T-Pot](https://g
 ---
 
 Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
-- <b>Note:</b> Ubuntu was less problematic, but Debian was slimmer and slightly more performant. I went with Debian for this tutorial, but most steps should apply to both.
+- **Note:** Ubuntu was less problematic, but Debian was slimmer and slightly more performant. I went with Debian for this tutorial, but most steps should apply to both.
 
 [![create-vm1](create-vm1.png)](create-vm1.png)
 
@@ -31,14 +31,14 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 [![Basics-2](basics.png)](basics.png)
 
-- <b>Note:</b> To save costs, it may be possible to run T-Pot on 2 cores, 8GB RAM - though this would require tweaking Logstash/Elasticsearch (A T-Pot Hive install on a fresh server idles around 7.9-8.5 GB RAM usage).
+- **Note:** To save costs, it may be possible to run T-Pot on 2 cores, 8GB RAM - though this would require tweaking Logstash/Elasticsearch (A T-Pot Hive install on a fresh server idles around 7.9-8.5 GB RAM usage).
 
 [![Basics](basics2.png)](basics2.png)
 
-- <b>Note:</b> You can allow immediate remote access via port 22 during this setup, but this port will be exposed to ALL external IPs. For this reason, I suggest setting 'Public inbound ports' to None and then creating a more restricted, temporary NSG rule after deploying the VM (see [Install step #1](#installing-t-pot)).
+- **Note:** You can allow immediate remote access via port 22 during this setup, but this port will be exposed to ALL external IPs. For this reason, I suggest setting 'Public inbound ports' to None and then creating a more restricted, temporary NSG rule after deploying the VM (see [Install step #1](#installing-t-pot)).
 
 [![Basics-3](basics3.png)](basics3.png)
-- <b>Note:</b> You can select 'Generate new key pair' here if you want to use a new SSH key for accessing this VM. Put this key in your local .ssh folder. If on *nix, you may need to restrict its permissions with `sudo chmod 400 {generated key name}.pem`
+- **Note:** You can select 'Generate new key pair' here if you want to use a new SSH key for accessing this VM. Put this key in your local .ssh folder. If on *nix, you may need to restrict its permissions with `sudo chmod 400 {generated key name}.pem`
 
 #### Disks
 
@@ -48,7 +48,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 [![Basics](disks.png)](disks.png)
 
-- <b>Note:</b> Though the [offical documentation](https://github.com/telekom-security/tpotce?tab=readme-ov-file#system-requirements) says SSD storage is required, I found this to work fine on Standard HDD.
+- **Note:** Though the [offical documentation](https://github.com/telekom-security/tpotce?tab=readme-ov-file#system-requirements) says SSD storage is required, I found this to work fine on Standard HDD.
 
 #### Networking
 
@@ -60,7 +60,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 [![Basics](networking.png)](networking.png)
 
-- <b>Note:</b> T-Pot expects your virtual network subnet (internal) to be a /24 (255.255.255.0) 
+- **Note:** T-Pot expects your virtual network subnet (internal) to be a /24 (255.255.255.0) 
 
 
 ## Installing T-Pot 
@@ -79,7 +79,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 [![install1](install1.png)](install1.png)
 
-- <b>Note:</b> If unattended-upgrades.service is running (check with `sudo systemctl status unattended-upgrades.service`), you may need to stop it temporarily to avoid 'dpkg frontend lock' errors: `sudo systemctl stop unattended-upgrades.service`
+- **Note:** If unattended-upgrades.service is running (check with `sudo systemctl status unattended-upgrades.service`), you may need to stop it temporarily to avoid 'dpkg frontend lock' errors: `sudo systemctl stop unattended-upgrades.service`
 
 <br>
 
@@ -163,10 +163,10 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 ## Test Access
 ---
 
-<b>SSH:</b> `ssh {username}@{Azure VM Public IP} -p 64295` or
+**SSH:** `ssh {username}@{Azure VM Public IP} -p 64295` or
 `ssh {username}@{Azure VM Public IP} -i ~/.ssh/{generated key name}.pem -p 64295` if you're using a new key.
 
-<b>Web Dashboard:</b> `https://{Azure VM Public IP}:64297` (bookmark this)
+**Web Dashboard:** `https://{Azure VM Public IP}:64297` (bookmark this)
 
 [![tpot-dash](tpot-dash.png)](tpot-dash.png)
 
