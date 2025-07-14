@@ -170,6 +170,15 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 [![tpot-dash](tpot-dash.png)](tpot-dash.png)
 
+#### Changing the T-Pot web UI password:
+- `htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>`
+- Verify: `htpasswd -v /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>` 
+
+#### Creating a new web user:
+- `/home/<local user>/tpotce/genuser.sh`
+- `htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <new user>`
+- Verify: `cat /home/<local user>/tpotce/data/nginx/conf/nginxpasswd` to make sure there is an entry for `<new user>`
+
 #### Kibana
 
 [![kibana-dash](kibana-dash.png)](kibana-dash.png)
@@ -207,32 +216,15 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 ## Troubleshooting
 ---
 
-#### Changing the T-Pot web UI password:
-- `htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>`
-- Verify: `htpasswd -v /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>` 
-
-<br>
-
-#### Creating a new web user:
-- `/home/<local user>/tpotce/genuser.sh`
-- `htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <new user>`
-- Verify: `cat /home/<local user>/tpotce/data/nginx/conf/nginxpasswd` to make sure there is an entry for `<new user>`
-
-<br>
-
 #### To check for TPot-related errors:
 - `journalctl -u tpot -f`
 - `sudo systemctl status tpot.service`  
-
-<br>
 
 #### To check for port bind conflicts that will force-restart tpot.service:
 - `sudo netstat -tulpen` or `sudo ss -tunlap` 
 
 #### To determine processes reponsible for port conflicts on a specified port:
-- `sudo fuser {port}/tcp(udp)` to get the PID(s) of processes using this port, then `ps -p {PID}` 
-
-<br>
+- `sudo fuser {port}/tcp(udp)` to get the PID(s) of processes using this port, then `ps -p {PID}`
 
 #### You may need to manually set DNS/nameservers in case of port 53 conflict: 
         
@@ -243,4 +235,3 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
         127.0.0.1 {hostname}
         nameserver 8.8.8.8
         nameserver 8.8.4.4
-<br>
