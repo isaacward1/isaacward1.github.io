@@ -36,14 +36,12 @@ The use of legitimate services to mask command and control communication and dat
 The setup of dev tunnels for C2 redirection is a relatively straightforward process. The threat actor needs only a valid GitHub or Microsoft account and the free executable available on Windows, MacOS, and Linux [11]. With that, they would need to authenticate via the tool with one of the following commands: 
 
 [![](4.png)](4.png) 
-
-<br>
+######
 
 After verification, a secure, persistent channel can be deployed by issuing the following:
 
 [![](5.png)](5.png) 
-
-<br>
+######
 
 With the dev tunnel active, all the attacker has to do is bind the channel to their C2 listener port on the same host machine [4]. Now, the control server and infected devices will direct all C2 traffic through a trusted proxy hosted within Microsoft’s Azure cloud infrastructure. 
 
