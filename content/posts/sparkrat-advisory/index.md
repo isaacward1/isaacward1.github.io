@@ -43,10 +43,10 @@ with a slight change in strategy and payload delivery method.
 Interestingly, these uncovered C2 server domains were found to have open directories
 containing SparkRAT implants and bash scripts. Below are screenshots of an exposed directory and the content of its hosted scripts. 
 
-![](gmcomamz-dev-dir.png)
+[![](gmcomamz-dev-dir.png)](gmcomamz-dev-dir.png)
 ###### Screenshot of hxxps://gmcomamz[.]site/dev (Source: Hunt.io)
 
-![](curl-dev-bash.png)
+[![](curl-dev-bash.png)](curl-dev-bash.png)
 ###### Curl results from hxxps://gmcomamz[.]site/dev/dev.sh
 
 The bash script above downloads the Mach-O binary file (client.bin) from the hosting domain
@@ -57,19 +57,19 @@ as a background process. This is typical behavior of malware hosting servers.
 The behavior of the test.sh script is similar, however, it points to
 another domain which has also been found to host SparkRAT agents (clients): 
 
-![](curl-test-bash.png)
+[![](curl-test-bash.png)](curl-test-bash.png)
 ###### Curl results from hxxps://gmcomamz[.]site/dev/test.sh
 
 ## SparkRAT Analysis
 ---
-![](sparkrat-webui.png)
+[![](sparkrat-webui.png)](sparkrat-webui.png)
 ###### SparkRAT Web Interface
 
 Accessed through a browser, the SparkRAT Web UI provides an overview of active remote sessions along with
 system information of each connected machine. In addition to the basic operations listed below, the tool’s
 interface comes with several additional capabilities such as viewing a live instance of the victim’s screen, taking screenshots, and remote shutdown. 
 
-![](sparkrat-create-client.png)
+[![](sparkrat-create-client.png)](sparkrat-create-client.png)
 ###### Client Creation
 
 **Generate Client** creates an executable file that, when executed on a target machine,
@@ -77,7 +77,7 @@ will create a backdoor connection with the associated C2 system. Clients can be 
 to point to different hosts, connect over a specified port, and run on different operating
 systems (Windows, macOS/Darwin, and Linux). 
 
-![](sparkrat-terminal.png)
+[![](sparkrat-terminal.png)](sparkrat-terminal.png)
 ###### Remote Terminal Window
 
 As one would expect, the **Terminal** feature allows for attackers to execute
@@ -85,25 +85,25 @@ commands on a target machine via a web-based PowerShell GUI. If used in
 combination with remote privilege escalation, attackers can carry out
 system-level operations like disabling the firewall, modifying registry keys, and disabling antivirus software. 
 
-![](sparkrat-process-mananger.png)
+[![](sparkrat-process-mananger.png)](sparkrat-process-mananger.png)
 ###### Process Manager
 
 The **Process** feature lists all running processes as well as the ability to stop them. This can be used to terminate security/monitoring software. 
 
-![](sparkrat-filesystem.png)
+[![](sparkrat-filesystem.png)](sparkrat-filesystem.png)
 ###### File Manager Tool
 
 **Explorer** allows attackers to enumerate, create, and delete files/directories on the target 
 system. It also allows files/directories to be downloaded to the attacker's local machine or uploaded to the target machine. 
 
-![](wireshark-initial.png)
+[![](wireshark-initial.png)](wireshark-initial.png)
 ###### Wireshark capture showing initial client-C2 communication
 
 In this exchange, captured shortly after the execution of a SparkRAT agent,
 the target system sends a request to upgrade its connection to use the
 WebSocket protocol. A WebSocket handshake over port 8000 is a key characteristic of SparkRAT command-and-control (C2) traffic. 
 
-![](wireshark-client-post.png)
+[![](wireshark-client-post.png)](wireshark-client-post.png)
 ###### Client POST request to update SparkRAT version
 
 Following the WebSocket handshake, the target system sends a POST request with the commit query parameter storing
@@ -116,41 +116,32 @@ this client is using the latest SparkRAT version that the server can offer.
 ## MITRE ATT&CK 
 ---
 #### T1059 - Command and Scripting Interpreter 
-
 Adversaries may abuse command and script interpreters to execute commands, scripts, or binaries. These interfaces and languages provide ways of interacting 
 with computer systems and are a common feature across many different platforms. 
 
 #### T1571 - Non-Standard Port 
-
 Adversaries may communicate using a protocol and port pairing that are typically not associated. 
 
 #### T1005 - Data from Local System 
-
 Adversaries may search local system sources, such as file systems and configuration files or local databases, to find files of interest and sensitive data prior to Exfiltration. 
 
 #### T1071.001 - Application Layer Protocol: Web Protocols (C2) 
-
 Adversaries may communicate using application layer protocols associated with web traffic to avoid detection/network filtering by blending in with existing traffic.
 Protocols such as HTTP/S and WebSocket that carry web traffic may be very common in environments. 
 
 #### T1105 - Ingress Tool Transfer (C2) 
-
 Adversaries may transfer tools or other files from an external system into a compromised environment. 
 
 #### T1573.001 - Symmetric Cryptography (C2) 
-
 Adversaries may employ a known symmetric encryption algorithm to conceal command and control traffic rather than relying on any inherent protections provided by a communication protocol. 
 
 #### T1082 - System Information Discovery 
-
 An adversary may attempt to get detailed information about the operating system and hardware, including version, patches, hotfixes, service packs, and architecture. 
 
 #### T1083 - File and Directory Discovery 
-
 Adversaries may enumerate files and directories or may search in specific locations of a host or network share for certain information within a file system.  
 
 #### T1106 - Native API 
-
 Adversaries may interact with the native OS application programming interface (API) to execute behaviors. 
 
 <br><br>
