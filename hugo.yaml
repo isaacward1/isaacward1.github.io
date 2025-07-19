@@ -19,7 +19,7 @@ params:
   homeInfoParams:
     Title: "Under (permanent) construction..."
     Content: >-
-      i post some stuff here maybe idk 🤷‍♂️.
+      i post some stuff here maybe idk 🤷‍♂️
   socialIcons:
     - name: Github
       url: "https://github.com/isaacward1"
