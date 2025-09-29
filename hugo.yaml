@@ -1,6 +1,6 @@
 baseURL: "https://isaacward1.github.io/"
 languageCode: "en-us"
-title: "Isaac's cool ass blog website"
+title: "Isaac's cool blog website"
 theme: "PaperMod"
 canonifyurls: true
 relativeURLs: false
