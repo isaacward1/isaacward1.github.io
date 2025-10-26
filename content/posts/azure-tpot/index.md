@@ -197,25 +197,26 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 ## Creating a Kibana Dashboard Visualization
 ---
+...
 
-😴😴😴
+
+## [GreedyBear](github.com/intelowlproject/GreedyBear) Feed Generation
+---
+...
+
+
+## [OpenCTI](https://github.com/OpenCTI-Platform/opencti) Threat Intelligence Correlation
+---
+...
 
 
 ## Splunk Integration
 ---
-
-😴😴😴
-
-
-## Configuring Elasticsearch/Logstash
----
-
-😴😴😴
+...
 
 
 ## Troubleshooting
 ---
-
 #### To check for TPot-related errors:
 - `journalctl -u tpot -f`
 - `sudo systemctl status tpot.service`  
