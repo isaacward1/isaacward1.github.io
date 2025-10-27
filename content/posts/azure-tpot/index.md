@@ -202,7 +202,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
       chmod g+r /home/csadmin/tpotce/data/dionaea/binaries/*
 
-#### Creating new web users
+#### Creating New Web Users
 
 Option 1
 - `/home/<local user>/tpotce/genuser.sh`
@@ -216,9 +216,10 @@ Option 2
 4. If there are multiple web users separate b64 strings with a space: WEB_USER={base64 string} {base64 string}
 
 **Note:** For some reason, Option 1 would not create permanent web users (resets after scheduled tpot.service restart)
+
 **Note:** All created users will have admin/edit privileges on the Kibana dashboard. If desired, a separate Elastic instance can be connected to T-Pot for more custom authorization.
 
-#### Changing the T-Pot web UI password:
+#### Changing the T-Pot Web UI Password:
 - `htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>`
 - Verify: `htpasswd -v /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>`
 
