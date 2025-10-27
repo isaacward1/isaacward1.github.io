@@ -170,15 +170,6 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 [![tpot-dash](tpot-dash.png)](tpot-dash.png)
 
-#### Changing the T-Pot web UI password:
-- `htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>`
-- Verify: `htpasswd -v /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>` 
-
-#### Creating a new web user:
-- `/home/<local user>/tpotce/genuser.sh`
-- `htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <new user>`
-- Verify: `cat /home/<local user>/tpotce/data/nginx/conf/nginxpasswd` to make sure there is an entry for `<new user>`
-
 #### Kibana
 
 [![kibana-dash](kibana-dash.png)](kibana-dash.png)
@@ -213,12 +204,23 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 #### Creating new web users
 
+Option 1
+- `/home/<local user>/tpotce/genuser.sh`
+- `htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <new user>`
+- Verify: `cat /home/<local user>/tpotce/data/nginx/conf/nginxpasswd` to make sure there is an entry for `<new user>`
+
+Option 2
 1. `htpasswd -n -b 'username' 'password' | base64 -w0` - This will output a base64 string that should be pasted into ~/tpotce/.env for permanent web users 
 2. `vi ~/tpotce/.env`
 3. Edit WEB_USER={base64 string here}
 4. If there are multiple web users separate b64 strings with a space: WEB_USER={base64 string} {base64 string}
 
+**Note:** For some reason, Option 1 would not create permanent web users (resets after scheduled tpot.service restart)
 **Note:** All created users will have admin/edit privileges on the Kibana dashboard. If desired, a separate Elastic instance can be connected to T-Pot for more custom authorization.
+
+#### Changing the T-Pot web UI password:
+- `htpasswd /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>`
+- Verify: `htpasswd -v /home/<local user>/tpotce/data/nginx/conf/nginxpasswd <web username>`
 
 
 ## Creating a Kibana Dashboard Visualization
