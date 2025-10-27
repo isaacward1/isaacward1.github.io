@@ -179,7 +179,7 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 [![attack-map](attack-map.png)](attack-map.png)
 
 
-#### [Spiderfoot](https://github.com/smicallef/spiderfoot) Threat Intelligence
+#### [SpiderFoot](https://github.com/smicallef/spiderfoot) Threat Intelligence
 
 [![spiderfoot1](spiderfoot1.png)](spiderfoot1.png)
 
