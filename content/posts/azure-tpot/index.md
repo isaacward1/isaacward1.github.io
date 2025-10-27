@@ -12,7 +12,7 @@ A simple guide for setting up Telekom's awesome multi-honeypot [T-Pot](https://g
 ---
 
 Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
-- **Note:** Ubuntu was less problematic, Debian was slightly (negligible) more performant. I went with Debian for this tutorial, but most steps should apply to both.
+- **Note:** Ubuntu was less "problematic", Debian was slightly (negligible) more performant. I went with Debian for this tutorial, but most steps should apply to both.
 
 [![create-vm1](create-vm1.png)](create-vm1.png)
 
@@ -200,16 +200,16 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 #### File Transfer
 
 - Upload to T-Pot server
-  
-        scp -i {key name} -P 64295 -r {file or folder to upload} {T-Pot username}{<server IP}:{remote target path}
+
+      scp -i {key name} -P 64295 -r {file or folder to upload} {T-Pot username}{<server IP}:{remote target path}
 
 - Download from T-Pot server
 
-        scp -i {key name} -P 64295 -r {T-Pot username}@{server IP}:{file or folder to download} {local target path}
+      scp -i {key name} -P 64295 -r {T-Pot username}@{server IP}:{file or folder to download} {local target path}
 
-- make sure that the file/folder you wish to download has group (tpot) read access
+- Verify that the file/folder to be downloaded has group (tpot) read access:
 
-        chmod g+r /home/csadmin/tpotce/data/dionaea/binaries/*
+      chmod g+r /home/csadmin/tpotce/data/dionaea/binaries/*
 
 #### Creating new web users
 
