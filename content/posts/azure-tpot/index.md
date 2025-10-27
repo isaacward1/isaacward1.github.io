@@ -5,7 +5,7 @@ date: 2025-06-15
 draft: false
 ShowToc: false
 ---
-A simple guide for setting up Telekom's awesome multi-honeypot [T-Pot](https://github.com/telekom-security/tpotce) on Azure.
+A guide for deploying Telekom's awesome multi-honeypot [T-Pot](https://github.com/telekom-security/tpotce) on Azure.
 
 
 ## Azure VM Deployment 
