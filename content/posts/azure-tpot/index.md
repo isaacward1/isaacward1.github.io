@@ -195,12 +195,38 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 [![spiderfoot2](spiderfoot2.png)](spiderfoot2.png)
 
 
+## Administration
+---
+#### File Transfer
+
+- Upload to T-Pot server
+  
+        scp -i {key name} -P 64295 -r {file or folder to upload} {T-Pot username}{<server IP}:{remote target path}
+
+- Download from T-Pot server
+
+        scp -i {key name} -P 64295 -r {T-Pot username}@{server IP}:{file or folder to download} {local target path}
+
+- make sure that the file/folder you wish to download has group (tpot) read access
+
+        chmod g+r /home/csadmin/tpotce/data/dionaea/binaries/*
+
+#### Creating new web users
+
+1. `htpasswd -n -b 'username' 'password' | base64 -w0` - This will output a base64 string that should be pasted into ~/tpotce/.env for permanent web users 
+2. `vi ~/tpotce/.env`
+3. Edit WEB_USER={base64 string here}
+4. If there are multiple web users separate b64 strings with a space: WEB_USER={base64 string} {base64 string}
+
+**Note:** All created users will have admin/edit privileges on the Kibana dashboard. If desired, a separate Elastic instance can be connected to T-Pot for more custom authorization.
+
+
 ## Creating a Kibana Dashboard Visualization
 ---
 ...
 
 
-## [GreedyBear](github.com/intelowlproject/GreedyBear) Feed Generation
+## [GreedyBear](https://github.com/intelowlproject/GreedyBear) Feed Generation
 ---
 ...
 
@@ -229,10 +255,11 @@ Create a resource > select `Ubuntu Server 24.04 LTS` or `Debian 12 "Bookworm"`
 
 #### You may need to manually set DNS/nameservers in case of port 53 conflict: 
         
-        $ sudo systemctl disable --now systemd-resolved.service
-  
-        $ sudo nano /etc/resolve.conf
-  
-        127.0.0.1 {hostname}
-        nameserver 8.8.8.8
-        nameserver 8.8.4.4
+    sudo systemctl disable --now systemd-resolved.service
+    
+    sudo nano /etc/resolve.conf
+    
+    ---
+    127.0.0.1 {hostname}
+    nameserver 8.8.8.8
+    nameserver 8.8.4.4
