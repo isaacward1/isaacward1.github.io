@@ -1,6 +1,6 @@
 ---
 title: "T-Pot Honeypot on Azure"
-summary: A simple guide for setting up Telekom’s awesome multi-honeypot, T-Pot, on Azure.
+summary: A guide for deploying Telekom's awesome multi-honeypot T-Pot on Azure.
 date: 2025-06-15
 draft: false
 ShowToc: false
